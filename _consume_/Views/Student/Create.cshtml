@@ -1,0 +1,73 @@
+﻿@model _consume_.Models.tbl_model
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+     
+        @Html.HiddenFor(m=>m.Emp_Id)
+        <hr />
+      
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emp_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emp_name, new { htmlAttributes = new { @class = "form-control",@placeholder= "Emp_name", @required="required" } })
+                @Html.ValidationMessageFor(model => model.Emp_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emp_Department, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emp_Department, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emp_Department", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Emp_Department, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emp_sal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emp_sal, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emp_sal", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Emp_sal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emp_mob, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emp_mob, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emp_mob", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Emp_mob, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emp_company, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emp_company, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emp_company", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Emp_company, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
